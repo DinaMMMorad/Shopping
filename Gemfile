@@ -55,3 +55,7 @@ group :development do
   gem 'ruby-debug-ide', '0.4.24'
   gem 'debase', '0.2.1'
 end
+
+
+#model serializer
+gem 'active_model_serializers', :git => 'git://github.com/rails-api/active_model_serializers.git'

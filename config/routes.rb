@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       :sessions => 'users/sessions',
       :passwords => 'users/passwords'
   }
+  get '/products/new' => 'products#new_arrivals'
+  get '/products' => 'products#category_products'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
