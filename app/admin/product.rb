@@ -1,21 +1,5 @@
 ActiveAdmin.register Product do
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
-
-# Don't forget to add the image attribute (here thumbnails) to permitted_params
-
-
   index do
     column :title
     column :description
@@ -36,12 +20,6 @@ ActiveAdmin.register Product do
         f.input :picture, required: true, as: :file
       end
       f.input :category_id, :as => :select, :collection => Category.all.map {|u| [u.title, u.id]}, :include_blank => false
-
-      # f.input :category_id, :as => :select,
-      #         :collection => Category.all.map{|u| ["#{u.title}", u.id]}
-
-
-      # f.input :category_id, as: :select, collection: Category.select(:title)
     end
     f.actions
   end

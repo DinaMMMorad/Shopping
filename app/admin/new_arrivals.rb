@@ -1,4 +1,6 @@
 ActiveAdmin.register Product, :as => 'New Arrivals' do
+  config.clear_action_items!
+  actions :index
 
   member_action :mark_new_arrival, method: :get do
     if params && params['flag']

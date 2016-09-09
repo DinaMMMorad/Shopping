@@ -4,6 +4,8 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
+  config.comments = false
+  config.authorization_adapter = ActiveAdmin::CanCanAdapter
   config.site_title = "Shopping"
   config.skip_before_filter :check_user_token
 

@@ -10,6 +10,15 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   include ActionController::Serialization
 
+  # rescue_from CanCan::AccessDenied do |exception|
+  #   redirect_to (super_user? ? franchises_path : root_path), :alert => exception.message
+  # end
+  #
+  # def current_ability
+  #   @current_ability ||= Ability.new(current_user)
+  # end
+
+
 
   protected
   def render_errors(errors)
