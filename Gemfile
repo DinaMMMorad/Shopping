@@ -59,3 +59,15 @@ end
 
 #model serializer
 gem 'active_model_serializers', :git => 'git://github.com/rails-api/active_model_serializers.git'
+
+#activeadmin
+gem 'activeadmin', github: 'activeadmin'
+# Plus integrations with:
+gem 'cancan' # or cancancan
+gem 'draper'
+gem 'pundit'
+
+
+#image uploader
+gem 'paperclip'
+gem 'fog'

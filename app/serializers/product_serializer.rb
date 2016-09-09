@@ -1,9 +1,7 @@
 class ProductSerializer < ActiveModel::Serializer
-  attributes :id, :title, :description, :category, :is_new, :image
+  attributes :id, :title, :description, :is_new, :picture
 
-  def image
-    {
-        url: "/uploads/product/avatar/#{object.id}/#{object.image}"
-    }
+  def picture
+    object.picture.url
   end
 end

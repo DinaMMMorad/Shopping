@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 
   #rescue from record not found exception
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+  include ActionController::Serialization
 
 
   protected
