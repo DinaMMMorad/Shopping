@@ -19,7 +19,7 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def render_success(user)
-    render json: user.as_json(:only => [:email, :user_name, :access_token, :mobile]), status: :ok
+    render json: user.as_json(:only => [:id, :email, :user_name, :access_token, :mobile]), status: :ok
   end
 
   def render_error(error)

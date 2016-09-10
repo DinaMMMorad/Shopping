@@ -3,18 +3,20 @@ ActiveAdmin.register Product do
   index do
     column :title
     column :description
+    column :price
     column :is_new
     column :category_id
     column :created_at
     actions
   end
 
-  permit_params :title, :description, :is_new, :picture, :category_id
+  permit_params :title, :description, :is_new, :picture, :category_id, :price
 
   form do |f|
     f.inputs 'Product Details' do
       f.input :title
       f.input :description
+      f.input :price
       f.input :is_new
       f.inputs 'Upload' do
         f.input :picture, required: true, as: :file
@@ -28,10 +30,11 @@ ActiveAdmin.register Product do
     attributes_table do
       row :title
       row :description
+      row :price
+      row :category_id
       row :picture do
         image_tag(product.picture.url) #(:thumb))
       end
-      row :category_id
     end
   end
 
