@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
     param :phone, String, required: true, desc: 'user phone'
     param :alternative_phone, String, required: true, desc: 'user alternative phone'
     param :country, String, required: true, desc: 'user country'
-    param :full_address, String, required: true, desc: 'user address'
+    param :address, String, required: true, desc: 'user address'
   end
 
   def create
