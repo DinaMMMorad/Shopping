@@ -13,6 +13,6 @@ class Product < ActiveRecord::Base
   end
 
   def self.category_products(category_id)
-    Product.where(:categories => category_id).all
+    Product.where(:category_id => category_id).all
   end
 end
