@@ -9,6 +9,13 @@ ActiveAdmin.setup do |config|
   config.site_title = "Shopping"
   config.skip_before_filter :check_user_token
 
+
+
+
+  config.default_per_page = 20
+
+
+
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #

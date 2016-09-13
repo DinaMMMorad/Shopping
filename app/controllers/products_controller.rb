@@ -2,9 +2,11 @@ class ProductsController < ApplicationController
 
   api :Get, '/products/new', 'Get new arrival products'
   param :access_token, String, desc: 'authentication token', required: true
+  param :per, String, desc: 'Number of records per page', required: false
+  param :page, String, desc: 'Page Number', required: false
 
   def new_arrivals
-    products = Product.new_arrivals
+    products = Product.new_arrivals.paginate(page: params[:page], per_page: params[:per])
     render json: {products: serialized_products(products)}, status: :ok
   end
 
