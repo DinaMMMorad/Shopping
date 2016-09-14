@@ -9,6 +9,8 @@ ActiveAdmin.register Product, :as => 'New Arrivals' do
     redirect_to :action => :index
   end
 
+  filter :is_new
+
   index do
     column :title
     column :is_new do |p|
