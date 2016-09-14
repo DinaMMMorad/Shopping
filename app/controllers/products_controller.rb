@@ -17,9 +17,11 @@ class ProductsController < ApplicationController
   api :Get, '/products', 'Get products of a selected category'
   param :access_token, String, desc: 'authentication token', required: true
   param :category, String, desc: 'product category', required: true
+  param :per, String, desc: 'Number of records per page', required: false
+  param :page, String, desc: 'Page Number', required: false
 
   def category_products
-    render json: {products: Product.category_products(params[:category])}, status: :ok
+    render json: {products: Product.category_products(params[:category]).paginate(page: params[:page], per_page: params[:per])}, status: :ok
   end
 
 
