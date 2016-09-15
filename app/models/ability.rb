@@ -9,7 +9,6 @@ class Ability
   def admin
     owner
     cannot :manage, AdminUser
-    # cannot :manage, Product
   end
 
   def owner
