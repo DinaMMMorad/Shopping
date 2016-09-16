@@ -79,6 +79,7 @@ GEM
     builder (3.2.2)
     byebug (9.0.5)
     cancan (1.6.10)
+    certified (1.0.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -241,11 +242,17 @@ GEM
     formtastic (3.1.4)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
+    gcm (0.1.0)
+      httparty
+      json
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     inflecto (0.0.2)
     inherited_resources (1.6.0)
@@ -280,6 +287,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    multi_xml (0.5.5)
     mysql2 (0.4.4-x86-mingw32)
     nokogiri (1.6.8-x86-mingw32)
       mini_portile2 (~> 2.1.0)
@@ -390,11 +398,13 @@ DEPENDENCIES
   apipie-rails
   byebug
   cancan
+  certified
   coffee-rails (~> 4.1.0)
   debase (= 0.2.1)
   devise
   draper
   fog
+  gcm
   jbuilder (~> 2.0)
   jquery-rails
   mysql2

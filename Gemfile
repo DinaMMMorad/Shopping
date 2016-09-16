@@ -73,3 +73,9 @@ gem 'paperclip'
 gem 'fog'
 
 gem 'will_paginate', '~> 3.1.0'
+
+gem 'gcm'
+
+
+# certified gem
+gem 'certified'
