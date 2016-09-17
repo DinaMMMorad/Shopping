@@ -9,7 +9,8 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def create
-    user = User.find_by_email(user_params[:email])
+    user_email = user_params[:email]
+    user = User.find_by_email(user_email)
 
     if (user && user.valid_password?(params[:user][:password]))
       render_success(user)
