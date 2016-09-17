@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get '/get_products' => 'products#get_products_by_ids'
   # post '/create_orders' => 'orders#create_orders'
   resources :orders, only: [:create]
+  resources :devices, only: [:create]
 end

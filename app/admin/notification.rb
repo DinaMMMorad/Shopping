@@ -20,8 +20,8 @@ ActiveAdmin.register Notification do
 
   before_create do |notification|
     gcm = GCM.new('AIzaSyCvNzKokdkpCNrBLcDeEEMew2e0cwkEi54') # Server key from Step 1
-    registration_ids = ['APA91bHWdSUlf-NR77c0P-nFoPow2R2vR-p86t1rM5u9yDGXuOXw4GBFFkwuaJEitH_WtoPJrGEBoDuLE_qdWibsOg1lYpXlZSQHo5Zqrc5lqNog3QICTn8']
-    gcm.send(registration_ids, {data: {title: 'title', message: 'message'}})
+    registration_ids = Device.get_android_reg_ids
+    gcm.send(registration_ids, {data: {title: notification.title, message: notification.message}})
     # params[:item].merge!({ user_id: current_curator.id })
   end
 
