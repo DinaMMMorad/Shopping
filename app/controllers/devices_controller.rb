@@ -8,12 +8,21 @@ class DevicesController < ApplicationController
     param :os_name, String, required: true, desc: 'os name'
     param :reg_id, String, required: true, desc: 'registration id'
     param :user_id, String, required: true, desc: 'user id'
+    param :device_name, String, required: true, desc: 'device name'
     param :os_version, Integer, required: true, desc: 'os version'
   end
 
   def create
-    device = Device.new(permit_device_data)
-    if (device.save)
+    #update reg_id if device was registered previously otherwise save new device instance
+    device = Device.find_by_device_name(params[:device][:name])
+    device.reg_id = params[:device][:reg_id]
+
+    if !device
+      device = Device.new(permit_device_data)
+    end
+
+    #save device
+    if device.save
       render json: device.as_json(:only => [:id, :os_name, :reg_id, :user_id, :os_version]), status: :created
     else
       render json: errors_for(device.errors), status: :unprocessable_entity
@@ -21,6 +30,6 @@ class DevicesController < ApplicationController
   end
 
   def permit_device_data
-    params.require(:device).permit(:os_name, :reg_id, :user_id, :os_version)
+    params.require(:device).permit(:os_name, :reg_id, :user_id, :os_version, :device_name)
   end
 end

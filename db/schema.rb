@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160917201901) do
+ActiveRecord::Schema.define(version: 20160918113156) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -55,12 +55,13 @@ ActiveRecord::Schema.define(version: 20160917201901) do
   end
 
   create_table "devices", force: :cascade do |t|
-    t.string   "os_name",    limit: 255
-    t.string   "reg_id",     limit: 255
-    t.integer  "user_id",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "os_version", limit: 4
+    t.string   "os_name",     limit: 255
+    t.string   "reg_id",      limit: 255
+    t.integer  "user_id",     limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "os_version",  limit: 4
+    t.string   "device_name", limit: 255
   end
 
   add_index "devices", ["user_id"], name: "index_devices_on_user_id", using: :btree
