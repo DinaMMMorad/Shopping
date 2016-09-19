@@ -24,3 +24,8 @@ en:
       messages:
         invalid_login: 'Invalid email or password'
 
+  device:
+    messaged:
+      deleted_successfully: 'Device is deleted successfully'
+      deleted_failure: 'Device could not be deleted'
+

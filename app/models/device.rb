@@ -11,4 +11,8 @@ class Device < ActiveRecord::Base
     Device.where(:os_name => 'android').pluck(:reg_id)
   end
 
+  def self.find_device_by_name_and_user_id(device_name, user_id)
+    Device.where('device_name = ? AND user_id = ?', device_name, user_id).first
+  end
+
 end
