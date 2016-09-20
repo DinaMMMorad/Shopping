@@ -1,7 +1,7 @@
 class Notification < ActiveRecord::Base
 
   def self.get_today_notifications
-    Notification.where(:created_at => Date.today)
+    Notification.where('DATE(created_at) = DATE(?)', Time.now).order('created_at Desc')
   end
 
 end
