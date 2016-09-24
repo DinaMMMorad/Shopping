@@ -91,7 +91,7 @@ Rails.application.configure do
       authentication: 'plain',
       user_name: "eng_dinamorad@yahoo.com",
       password: "123456dodo",
-      domain: 'herokuapp.com',
+      domain: 'yahoo.com',
       enable_starttls_auto: true
   }
   #
