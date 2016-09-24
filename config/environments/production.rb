@@ -79,22 +79,22 @@ Rails.application.configure do
 
 
   #mailer
-  # Rails.application.routes.default_url_options[:host] = 'https://mallonline.herokuapp.com'
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.perform_deliveries = true
-  # config.action_mailer.raise_delivery_errors = true
-  # config.action_mailer.default :charset => "utf-8"
-  ActionMailer::Base.delivery_method = :smtp
+  Rails.application.routes.default_url_options[:host] = 'https://mallonline.herokuapp.com'
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+  # ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
       address: 'smtp.gmail.com',
       port: 587,
-      authentication: "plain",
+      authentication: :plain,
       user_name: "dinammorad1@gmail.com",
       password: "123456dodo",
       enable_starttls_auto: true
   }
-  config.action_mailer.default_url_options = { :host => 'https://mallonline.herokuapp.com' }
-  config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default_url_options = { :host => 'https://mallonline.herokuapp.com' }
+  # config.action_mailer.raise_delivery_errors = true
 
   #
   # config.action_mailer.default_url_options = { :host => 'https://mallonline.herokuapp.com' }
