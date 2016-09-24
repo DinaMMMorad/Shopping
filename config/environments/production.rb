@@ -89,6 +89,8 @@ Rails.application.configure do
       :address        => 'https://mallonline.herokuapp.com',
       :port           => '25',
       :authentication => :plain,
+      :user_name      => "eng_dinamorad@yahoo.com",
+      :password       => "123456dodo",
       :domain         => 'heroku.com'
   }
   #
