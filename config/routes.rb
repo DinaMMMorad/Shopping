@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   # post '/create_orders' => 'orders#create_orders'
   resources :orders, only: [:create]
   resources :devices, only: [:create]
+
+  root 'admin/products#index'
 end
