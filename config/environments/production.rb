@@ -104,7 +104,7 @@ Rails.application.configure do
   # }
 
 
-  onfig.action_mailer.default_url_options = { :host => 'mallonline.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'mallonline.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
