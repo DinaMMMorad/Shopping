@@ -79,21 +79,18 @@ Rails.application.configure do
 
 
   #mailer
-  Rails.application.routes.default_url_options[:host] = 'https://mallonline.herokuapp.com'
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default :charset => "utf-8"
-  # ActionMailer::Base.smtp_settings = {
-  #     :address        => 'smtp.sendgrid.net',
-  #     :port           => '587',
-  #     :authentication => :plain,
-  #     :user_name      => ENV['SENDGRID_USERNAME'],
-  #     :password       => ENV['SENDGRID_PASSWORD'],
-  #     :domain         => 'heroku.com'
-  # }
-  #
-  # ActionMailer::Base.delivery_method = :smtp
+  # Rails.application.routes.default_url_options[:host] = 'https://mallonline.herokuapp.com'
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default :charset => "utf-8"
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+      :address        => 'https://mallonline.herokuapp.com',
+      :port           => '25',
+      :authentication => :plain,
+      :domain         => 'heroku.com'
+  }
   #
   # config.action_mailer.default_url_options = { :host => 'https://mallonline.herokuapp.com' }
 
