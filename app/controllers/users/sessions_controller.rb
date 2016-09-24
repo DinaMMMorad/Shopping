@@ -24,7 +24,7 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def render_error(error)
-    render json: {errors: error}, status: :unprocessable_entity
+    render json: {message: error}, status: :unprocessable_entity
   end
 
 

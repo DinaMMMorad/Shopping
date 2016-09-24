@@ -1,6 +1,6 @@
 module TokenAuth
   def check_user_token
-    render json: {errors: 'not authenticated'}, status: :unauthorized unless is_user_authenticated
+    render json: {message: 'not authenticated'}, status: :unauthorized unless is_user_authenticated
   end
 
   def is_user_authenticated

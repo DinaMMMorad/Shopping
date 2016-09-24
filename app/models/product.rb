@@ -8,6 +8,22 @@ class Product < ActiveRecord::Base
   validates :price, presence: true
   validates :category_id, presence: true
 
+  # before_save :save_dimensions
+  #
+  # def save_dimensions
+  #   temp = self.picture.queued_for_write[:original]
+  #   unless temp.nil?
+  #     geo = Paperclip::Geometry.from_file(temp)
+  #     self.width = geo.width
+  #     self.height = geo.height
+  #   end
+    # dimensions = Paperclip::Geometry.from_file(file.queued_for_write[:picture].path)
+    # self.width = dimensions.width
+    # self.height = dimensions.height
+    # self.width = Paperclip::Geometry.from_file(to_file(style)).width
+    # self.height = Paperclip::Geometry.from_file(to_file(style)).height
+  # end
+
   def self.new_arrivals
     Product.where(:is_new => true)
   end
