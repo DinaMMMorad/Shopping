@@ -87,13 +87,16 @@ Rails.application.configure do
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
       address: 'smtp.yahoo.com',
-      port: 587,
-      authentication: 'plain',
+      port: '587',
+      authentication: :plain,
       user_name: "eng_dinamorad@yahoo.com",
       password: "123456dodo",
-      domain: 'yahoo.com'
+      domain: 'yahoo.com',
+      enable_starttls_auto: true
   }
   config.action_mailer.default_url_options = { :host => 'https://mallonline.herokuapp.com' }
+  config.action_mailer.raise_delivery_errors = true
+
   #
   # config.action_mailer.default_url_options = { :host => 'https://mallonline.herokuapp.com' }
 
