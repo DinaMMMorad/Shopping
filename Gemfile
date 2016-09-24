@@ -56,6 +56,7 @@ group :development do
   gem 'debase', '0.2.1'
 end
 
+gem 'pg'
 
 #model serializer
 gem 'active_model_serializers', :git => 'git://github.com/rails-api/active_model_serializers.git'
