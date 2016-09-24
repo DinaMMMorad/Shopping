@@ -1,5 +1,7 @@
 ActiveAdmin.register Product do
 
+  menu priority: 1
+  
   index do
     column :title
     column :description
