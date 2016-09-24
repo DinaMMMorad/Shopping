@@ -93,7 +93,7 @@ Rails.application.configure do
       password: "123456dodo",
       domain: 'yahoo.com'
   }
-  config.action_mailer.default_url_options = { :host => 'mallonline.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'https://mallonline.herokuapp.com' }
   #
   # config.action_mailer.default_url_options = { :host => 'https://mallonline.herokuapp.com' }
 
