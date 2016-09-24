@@ -86,12 +86,13 @@ Rails.application.configure do
   # config.action_mailer.default :charset => "utf-8"
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-      :address        => 'https://mallonline.herokuapp.com',
-      :port           => '25',
-      :authentication => :plain,
-      :user_name      => "eng_dinamorad@yahoo.com",
-      :password       => "123456dodo",
-      :domain         => 'heroku.com'
+      address: 'smtp.mail.com',
+      port: 587,
+      authentication: 'plain',
+      user_name: "eng_dinamorad@yahoo.com",
+      password: "123456dodo",
+      domain: 'herokuapp.com',
+      enable_starttls_auto: true
   }
   #
   # config.action_mailer.default_url_options = { :host => 'https://mallonline.herokuapp.com' }
