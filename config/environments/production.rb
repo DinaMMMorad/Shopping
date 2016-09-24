@@ -87,7 +87,7 @@ Rails.application.configure do
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
       address: 'smtp.yahoo.com',
-      port: '465',
+      port: 465,
       authentication: :plain,
       user_name: "eng_dinamorad@yahoo.com",
       password: "123456dodo",
