@@ -79,19 +79,19 @@ Rails.application.configure do
 
 
   #mailer
-  Rails.application.routes.default_url_options[:host] = 'https://mallonline.herokuapp.com'
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default :charset => "utf-8"
-
-  # config.action_mailer.default_url_options = { :host => 'https://mallonline.herokuapp.com' }
   # Rails.application.routes.default_url_options[:host] = 'https://mallonline.herokuapp.com'
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.perform_deliveries = true
   # config.action_mailer.raise_delivery_errors = true
   # config.action_mailer.default :charset => "utf-8"
-  #
+
+  config.action_mailer.default_url_options = { :host => 'https://mallonline.herokuapp.com' }
+  # Rails.application.routes.default_url_options[:host] = 'https://mallonline.herokuapp.com'
+  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default :charset => "utf-8"
+
   config.action_mailer.smtp_settings = {
       address: 'smtp.gmail.com',
       port: 587,
@@ -99,24 +99,25 @@ Rails.application.configure do
       authentication: "plain",
       enable_starttls_auto: true,
       user_name: 'dinammorad1@gmail.com',
+      domain: 'heroku.com',
       password: '123456dodo'
   }
 
 
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default :charset => "utf-8"
-
-  config.action_mailer.smtp_settings = {
-      address: "smtp.gmail.com",
-      port: 587,
-      domain: 'gmail.com',
-      authentication: "plain",
-      enable_starttls_auto: true,
-      user_name: 'dinammorad1@gmail.com',
-      password: '123456dodo'
-  }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.default :charset => "utf-8"
+  #
+  # config.action_mailer.smtp_settings = {
+  #     address: "smtp.gmail.com",
+  #     port: 587,
+  #     domain: 'gmail.com',
+  #     authentication: "plain",
+  #     enable_starttls_auto: true,
+  #     user_name: 'dinammorad1@gmail.com',
+  #     password: '123456dodo'
+  # }
 
 end
