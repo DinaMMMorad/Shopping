@@ -85,30 +85,30 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = true
   # config.action_mailer.default :charset => "utf-8"
 
-  # config.action_mailer.default_url_options = { :host => 'https://mallonline.herokuapp.com' }
-  # Rails.application.routes.default_url_options[:host] = 'https://mallonline.herokuapp.com'
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.perform_deliveries = true
-  # config.action_mailer.raise_delivery_errors = true
-  # config.action_mailer.default :charset => "utf-8"
-  # #
-  # config.action_mailer.smtp_settings = {
-  #     address: 'smtp.gmail.com',
-  #     port: 587,
-  #     domain: 'gmail.com',
-  #     authentication: "plain",
-  #     enable_starttls_auto: true,
-  #     user_name: 'dinammorad1@gmail.com',
-  #     password: '123456dodo',
-  #     openssl_verify_mode: 'none'
-  # }
-
-
   config.action_mailer.default_url_options = { :host => 'https://mallonline.herokuapp.com' }
+  Rails.application.routes.default_url_options[:host] = 'https://mallonline.herokuapp.com'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
+  #
+  config.action_mailer.smtp_settings = {
+      address: 'smtp.gmail.com',
+      port: 587,
+      domain: 'gmail.com',
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: ENV['GMAIL_SMTP_USER'],
+      password: ENV['GMAIL_SMTP_PASSWORD'],
+      openssl_verify_mode: 'none'
+  }
+
+
+  # config.action_mailer.default_url_options = { :host => 'https://mallonline.herokuapp.com' }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default :charset => "utf-8"
   # config.action_mailer.smtp_settings = {
   #     address: "smtp.gmail.com",
   #     port: 587,
@@ -133,15 +133,15 @@ Rails.application.configure do
   #     :enable_starttls_auto => true
   # }
 
-  config.action_mailer.smtp_settings = {
-      :address   => "smtp.sendgrid.net",
-      :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
-      :enable_starttls_auto => true, # detects and uses STARTTLS
-      :user_name => ENV["SENDGRID_SMTP_USER"],
-      :password  => ENV["SENDGRID_SMTP_PASSWORD"], # SMTP password is any valid API key, when user_name is "apikey".
-      :authentication => 'login',
-      :domain => 'heroku.com', # your domain to identify your server when connecting
-  }
+  # config.action_mailer.smtp_settings = {
+  #     :address   => "smtp.sendgrid.net",
+  #     :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
+  #     :enable_starttls_auto => true, # detects and uses STARTTLS
+  #     :user_name => ENV["SENDGRID_SMTP_USER"],
+  #     :password  => ENV["SENDGRID_SMTP_PASSWORD"], # SMTP password is any valid API key, when user_name is "apikey".
+  #     :authentication => 'login',
+  #     :domain => 'heroku.com', # your domain to identify your server when connecting
+  # }
 
   # ActionMailer::Base.smtp_settings = {
   #     :user_name => 'eng_dinamorad@yahoo.com',
