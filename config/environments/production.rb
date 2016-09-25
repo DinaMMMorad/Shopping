@@ -119,19 +119,30 @@ Rails.application.configure do
   #     password: '123456dodo',
   #     openssl_verify_mode: 'none'
   # }
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-  host = 'https://mallonline.herokuapp.com'
-  config.action_mailer.default_url_options = { host: host }
-  ActionMailer::Base.smtp_settings = {
-      :address        => 'smtp.sendgrid.net',
-      :port           => '587',
-      :authentication => "plain",
-      :user_name => ENV['SENDGRID_SMTP_USER'],
-      :password => ENV['SENDGRID_SMTP_PASSWORD'],
-      :domain         => 'heroku.com',
-      :enable_starttls_auto => true
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.delivery_method = :smtp
+  # host = 'https://mallonline.herokuapp.com'
+  # config.action_mailer.default_url_options = { host: host }
+  # ActionMailer::Base.smtp_settings = {
+  #     :address        => 'smtp.sendgrid.net',
+  #     :port           => '587',
+  #     :authentication => "plain",
+  #     :user_name => ENV['SENDGRID_SMTP_USER'],
+  #     :password => ENV['SENDGRID_SMTP_PASSWORD'],
+  #     :domain         => 'heroku.com',
+  #     :enable_starttls_auto => true
+  # }
+
+  config.action_mailer.smtp_settings = {
+      :address   => "smtp.sendgrid.net",
+      :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
+      :enable_starttls_auto => true, # detects and uses STARTTLS
+      :user_name => ENV["SENDGRID_SMTP_USER"],
+      :password  => ENV["SENDGRID_SMTP_PASSWORD"], # SMTP password is any valid API key, when user_name is "apikey".
+      :authentication => 'login',
+      :domain => 'heroku.com', # your domain to identify your server when connecting
   }
+
   # ActionMailer::Base.smtp_settings = {
   #     :user_name => 'eng_dinamorad@yahoo.com',
   #     :password => '123456dodo',
