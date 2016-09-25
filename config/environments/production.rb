@@ -109,16 +109,26 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
-  config.action_mailer.smtp_settings = {
-      address: "smtp.gmail.com",
-      port: 587,
-      domain: 'https://mallonline.herokuapp.com',
-      authentication: "login",
-      enable_starttls_auto: true,
-      user_name: 'dinammorad1@gmail.com',
-      password: '123456dodo',
-      openssl_verify_mode: 'none'
+  # config.action_mailer.smtp_settings = {
+  #     address: "smtp.gmail.com",
+  #     port: 587,
+  #     domain: 'https://mallonline.herokuapp.com',
+  #     authentication: "login",
+  #     enable_starttls_auto: true,
+  #     user_name: 'dinammorad1@gmail.com',
+  #     password: '123456dodo',
+  #     openssl_verify_mode: 'none'
+  # }
+  ActionMailer::Base.smtp_settings = {
+      :user_name => 'eng_dinamorad@yahoo.com',
+      :password => '123456dodo',
+      :domain => 'https://mallonline.herokuapp.com',
+      :address => 'smtp.sendgrid.net',
+      :port => 587,
+      :authentication => :plain,
+      :enable_starttls_auto => true
   }
+
 
   # config.action_controller.asset_host = "ttps://mallonline.herokuapp.com/"
   # config.action_mailer.default_url_options = { :host => "ttps://mallonline.herokuapp.com/" }
