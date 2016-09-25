@@ -111,7 +111,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
       address: "smtp.gmail.com",
       port: 587,
-      domain: 'localhost:3000',
+      domain: 'https://mallonline.herokuapp.com',
       authentication: "login",
       enable_starttls_auto: true,
       user_name: 'dinammorad1@gmail.com',
