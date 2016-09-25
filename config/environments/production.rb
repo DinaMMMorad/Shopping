@@ -119,15 +119,28 @@ Rails.application.configure do
   #     password: '123456dodo',
   #     openssl_verify_mode: 'none'
   # }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  host = 'mallonline.herokuapp.com'
+  config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
+      :address        => 'smtp.sendgrid.net',
+      :port           => '587',
+      :authentication => :plain,
       :user_name => 'eng_dinamorad@yahoo.com',
       :password => '123456dodo',
-      :domain => 'https://mallonline.herokuapp.com',
-      :address => 'smtp.sendgrid.net',
-      :port => 587,
-      :authentication => :plain,
+      :domain         => 'heroku.com',
       :enable_starttls_auto => true
   }
+  # ActionMailer::Base.smtp_settings = {
+  #     :user_name => 'eng_dinamorad@yahoo.com',
+  #     :password => '123456dodo',
+  #     :domain => 'https://mallonline.herokuapp.com',
+  #     :address => 'smtp.sendgrid.net',
+  #     :port => 587,
+  #     :authentication => :plain,
+  #     :enable_starttls_auto => true
+  # }
 
 
   # config.action_controller.asset_host = "ttps://mallonline.herokuapp.com/"
