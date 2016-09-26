@@ -80,6 +80,3 @@ gem 'gcm'
 
 # certified gem
 gem 'certified'
-
-
-gem 'figaro'
