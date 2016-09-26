@@ -1,5 +1,5 @@
 ActiveAdmin.register Order do
-
+  config.batch_actions = false
   config.clear_action_items!
   actions :all, :except => [:new]
 

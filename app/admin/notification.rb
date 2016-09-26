@@ -1,5 +1,5 @@
 ActiveAdmin.register Notification do
-
+  config.batch_actions = false
   actions :all, :except => [:edit, :show]
 
   require 'gcm'

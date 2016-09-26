@@ -1,5 +1,6 @@
 ActiveAdmin.register AdminUser do
   permit_params :email, :password, :password_confirmation
+  config.batch_actions = false
 
   #to prevent showing owner and show admin users only.
   controller do

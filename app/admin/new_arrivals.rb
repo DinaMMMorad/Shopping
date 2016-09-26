@@ -1,6 +1,7 @@
 ActiveAdmin.register Product, :as => 'New Arrivals' do
   config.clear_action_items!
   actions :index
+  config.batch_actions = false
 
   member_action :mark_new_arrival, method: :put do
     if params && params['flag']

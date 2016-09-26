@@ -1,6 +1,7 @@
 ActiveAdmin.register Product do
 
   menu priority: 1
+  config.batch_actions = false
   
   index do
     column :title
