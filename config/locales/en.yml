@@ -29,3 +29,5 @@ en:
       deleted_successfully: 'Device is deleted successfully'
       deleted_failure: 'Device could not be deleted'
 
+  active_admin:
+      powered_by: ""
