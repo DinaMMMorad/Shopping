@@ -21,7 +21,8 @@ class ProductsController < ApplicationController
   param :page, String, desc: 'Page Number', required: false
 
   def category_products
-    render json: {products: Product.category_products(params[:category]).paginate(page: params[:page], per_page: params[:per])}, status: :ok
+    products = Product.category_products(params[:category]).paginate(page: params[:page], per_page: params[:per])
+    render json: {products: serialized_products(products)}, status: :ok
   end
 
 
