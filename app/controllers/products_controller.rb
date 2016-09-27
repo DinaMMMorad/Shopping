@@ -34,7 +34,10 @@ class ProductsController < ApplicationController
     products_ids = params[:products_ids]
     products = Array.new
     JSON.parse(products_ids).each do |product_id|
-      products.push(Product.find_by_id(product_id))
+      product = Product.find_by_id(product_id)
+      if product
+        products.push(product)
+      end
     end
     render json: {products: serialized_products(products)}, status: :ok
   end
