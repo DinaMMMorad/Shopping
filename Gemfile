@@ -80,3 +80,5 @@ gem 'gcm'
 
 # certified gem
 gem 'certified'
+
+gem 'rails_12factor', group: :production
