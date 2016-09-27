@@ -127,6 +127,7 @@ Rails.application.configure do
   #     :domain  => 'herokuapp.com'
   # }
 
+  config.assets.compile = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => "herokuapp.com" }
   config.action_mailer.smtp_settings = {
