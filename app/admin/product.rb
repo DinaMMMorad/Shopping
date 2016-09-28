@@ -13,6 +13,11 @@ ActiveAdmin.register Product do
     actions
   end
 
+  filter :title
+  filter :description
+  filter :price
+
+
   permit_params :title, :description, :is_new, :picture, :category_id, :price
 
   form do |f|

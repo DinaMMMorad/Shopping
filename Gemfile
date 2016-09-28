@@ -71,6 +71,8 @@ gem 'pundit'
 
 #image uploader
 gem 'paperclip'
+gem 'aws-sdk'
+
 gem 'fog'
 
 gem 'will_paginate', '~> 3.1.0'

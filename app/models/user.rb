@@ -13,5 +13,8 @@ class User < ActiveRecord::Base
     save
   end
 
+  def to_s
+    self.email
+  end
 
 end
