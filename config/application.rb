@@ -27,6 +27,6 @@ module Shopping
                                  :fog_credentials => {:provider => "Local",
                                                       :local_root => "#{Rails.root}/public"},
                                  :fog_directory => "",
-                                 :fog_host => "https://mallonline.herokuapp.com"}
+                                 :fog_host => "http://293858c0.ngrok.io"}#"https://mallonline.herokuapp.com"}
   end
 end

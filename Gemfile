@@ -70,7 +70,7 @@ gem 'pundit'
 
 
 #image uploader
-gem 'paperclip'
+# gem 'paperclip'
 gem 'aws-sdk'
 
 gem 'fog'
@@ -84,3 +84,7 @@ gem 'gcm'
 gem 'certified'
 
 gem 'rails_12factor', group: :production
+
+# gem 'paperclip-cloudinary'
+gem 'paperclip'
+gem 'cloudinary'

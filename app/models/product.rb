@@ -3,26 +3,10 @@ class Product < ActiveRecord::Base
   has_many :users
   belongs_to :category
   has_attached_file :picture
-  validates_attachment_content_type :picture, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif", 'JPG', 'image/JPG']
+  validates_attachment_content_type :picture, :content_type => ['image/jpg', 'image/jpeg', 'image/png', 'image/gif', 'JPG', 'image/JPG']
   validates :title, presence: true
   validates :price, presence: true
   validates :category_id, presence: true
-
-  # before_save :save_dimensions
-  #
-  # def save_dimensions
-  #   temp = self.picture.queued_for_write[:original]
-  #   unless temp.nil?
-  #     geo = Paperclip::Geometry.from_file(temp)
-  #     self.width = geo.width
-  #     self.height = geo.height
-  #   end
-    # dimensions = Paperclip::Geometry.from_file(file.queued_for_write[:picture].path)
-    # self.width = dimensions.width
-    # self.height = dimensions.height
-    # self.width = Paperclip::Geometry.from_file(to_file(style)).width
-    # self.height = Paperclip::Geometry.from_file(to_file(style)).height
-  # end
 
   def self.new_arrivals
     Product.where(:is_new => true)
@@ -30,5 +14,13 @@ class Product < ActiveRecord::Base
 
   def self.category_products(category_id)
     Product.where(:category_id => category_id).all
+  end
+
+  def self.search_product(product_category_id, product_title)
+    Product.where('category_id = ? AND title = ?', product_category_id, product_title).all
+  end
+
+  def self.search_new_arrivals(product_title)
+    Product.where('is_new = ? AND title = ?', true, product_title).all
   end
 end

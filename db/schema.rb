@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160924162859) do
+ActiveRecord::Schema.define(version: 20161001104000) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -67,10 +67,14 @@ ActiveRecord::Schema.define(version: 20160924162859) do
   add_index "devices", ["user_id"], name: "index_devices_on_user_id", using: :btree
 
   create_table "notifications", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.text     "message",    limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "title",                limit: 255
+    t.text     "message",              limit: 65535
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "picture_file_name",    limit: 255
+    t.string   "picture_content_type", limit: 255
+    t.integer  "picture_file_size",    limit: 4
+    t.datetime "picture_updated_at"
   end
 
   create_table "orders", force: :cascade do |t|

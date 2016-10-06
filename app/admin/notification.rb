@@ -4,16 +4,14 @@ ActiveAdmin.register Notification do
 
   require 'gcm'
   require 'certified'
-  permit_params :title, :message
+  permit_params :title, :message, :picture
 
-
-  before_create do |notification|
+  after_create do |notification|
+    # NotificationsJob.perform_later notification
     gcm = GCM.new('AIzaSyCvNzKokdkpCNrBLcDeEEMew2e0cwkEi54')
     registration_ids = Device.get_android_reg_ids
-    gcm.send(registration_ids, {data: {title: notification.title, message: notification.message}})
-    # params[:item].merge!({ user_id: current_curator.id })
+    gcm.send(registration_ids, {data: {title: notification.title, message: notification.message, picture_url: notification.picture.url}})
   end
-
 
   index do
     selectable_column
@@ -23,15 +21,13 @@ ActiveAdmin.register Notification do
     actions
   end
 
-  # filter :email
-  # filter :current_sign_in_at
-  # filter :sign_in_count
-  # filter :created_at
-  #
   form do |f|
     f.inputs 'Notification Details' do
       f.input :title
       f.input :message
+      f.inputs 'Upload' do
+        f.input :picture, required: true, as: :file
+      end
     end
     f.actions
   end

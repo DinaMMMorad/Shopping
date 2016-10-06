@@ -25,6 +25,22 @@ class ProductsController < ApplicationController
     render json: {products: serialized_products(products)}, status: :ok
   end
 
+  api :Get, '/search_product', 'search product with title and category'
+  param :access_token, String, desc: 'authentication token', required: true
+  param :category_id, String, desc: 'product category id', required: false
+  param :product_title, String, desc: 'product title', required: true
+  param :per, String, desc: 'Number of records per page', required: false
+  param :page, String, desc: 'Page Number', required: false
+
+  def search_product
+    if params[:category_id]
+      products = Product.search_product(params[:category_id], params[:product_title]).paginate(page: params[:page], per_page: params[:per])
+    else #filter new arrivals
+      products = Product.search_new_arrivals(params[:product_title]).paginate(page: params[:page], per_page: params[:per])
+    end
+    render json: {products: serialized_products(products)}, status: :ok
+  end
+
 
   # api :Get, '/get_products', 'Get products by ids'
   # param :access_token, String, desc: 'authentication token', required: true

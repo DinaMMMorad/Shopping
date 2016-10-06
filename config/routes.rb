@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get '/categories' => 'categories#index'
   get '/get_products' => 'products#get_products_by_ids'
   get '/today_notifications' => 'notifications#get_today_notifications'
+  get '/search_product' => 'products#search_product'
+
   delete '/devices/destroy_with_reg_id' => 'devices#destroy_with_reg_id'
   # post '/create_orders' => 'orders#create_orders'
   resources :orders, only: [:create]
