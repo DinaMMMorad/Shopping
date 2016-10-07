@@ -4,10 +4,10 @@ class Product < ActiveRecord::Base
   belongs_to :category
   #has_attached_file :picture, default_url: "/images/missing.jpg"
   has_attached_file :picture, :storage => :cloudinary, :cloudinary_resource_type => :image,
-                    path: "Shopping/public/images"
+                    path: :title
 
   # :path => "/:class/:attachment/:id_partition/:filename"
-  validates_attachment_content_type :picture, :content_type => ['image/jpg', 'image/jpeg', 'image/png', 'image/gif', 'JPG', 'image/JPG']
+  validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
   validates :title, presence: true
   validates :price, presence: true
   validates :category_id, presence: true
