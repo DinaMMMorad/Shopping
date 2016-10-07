@@ -7,10 +7,10 @@ ActiveAdmin.register Notification do
   permit_params :title, :message, :picture
 
   after_create do |notification|
-    # NotificationsJob.perform_later notification
-    gcm = GCM.new('AIzaSyCvNzKokdkpCNrBLcDeEEMew2e0cwkEi54')
-    registration_ids = Device.get_android_reg_ids
-    gcm.send(registration_ids, {data: {title: notification.title, message: notification.message, picture_url: notification.picture.url}})
+    NotificationsJob.perform_later notification
+    # gcm = GCM.new('AIzaSyCvNzKokdkpCNrBLcDeEEMew2e0cwkEi54')
+    # registration_ids = Device.get_android_reg_ids
+    # gcm.send(registration_ids, {data: {title: notification.title, message: notification.message, picture_url: notification.picture.url}})
   end
 
   index do
