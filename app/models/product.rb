@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
   belongs_to :category
   #has_attached_file :picture, default_url: "/images/missing.jpg"
   has_attached_file :picture, :storage => :cloudinary, :cloudinary_resource_type => :image,
-                    path: :title
+                    path: "product: #{Time.now}"
 
   # :path => "/:class/:attachment/:id_partition/:filename"
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
