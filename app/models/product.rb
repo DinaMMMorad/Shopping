@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
   has_many :orders, :dependent => :destroy
   belongs_to :category
   has_attached_file :picture, :storage => :cloudinary, :cloudinary_resource_type => :image,
-                    path: "product: #{Time.now}"
+                    path: "product/:id"
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
   validates :title, presence: true
   validates :price, presence: true

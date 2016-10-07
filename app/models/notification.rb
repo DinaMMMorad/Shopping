@@ -1,7 +1,7 @@
 class Notification < ActiveRecord::Base
 
   has_attached_file :picture, :storage => :cloudinary, :cloudinary_resource_type => :image,
-                    path: "notification: #{Time.now}"
+                    path: "notification/:id"
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 
   def self.get_today_notifications
