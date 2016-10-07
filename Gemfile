@@ -88,3 +88,4 @@ gem 'rails_12factor', group: :production
 # gem 'paperclip-cloudinary'
 gem 'paperclip'
 gem 'cloudinary'
+gem 'paperclip-cloudinary'
