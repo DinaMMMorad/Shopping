@@ -23,6 +23,6 @@ class Product < ActiveRecord::Base
   end
 
   def self.search_new_arrivals(search_text)
-    Product.where('is_new = ? AND (title LIKE ? OR description LIKE ?)', true, "%#{search_text}%", "%#{search_text}%).all
+    Product.where('is_new = ? AND (title LIKE ? OR description LIKE ?)', true, "%#{search_text}%", "%#{search_text}%").all
   end
 end
