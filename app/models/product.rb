@@ -2,7 +2,7 @@ class Product < ActiveRecord::Base
 
   has_many :users
   belongs_to :category
-  has_attached_file :picture
+  has_attached_file :picture, default_url: "/images/missing.jpg"
   validates_attachment_content_type :picture, :content_type => ['image/jpg', 'image/jpeg', 'image/png', 'image/gif', 'JPG', 'image/JPG']
   validates :title, presence: true
   validates :price, presence: true

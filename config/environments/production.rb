@@ -127,18 +127,18 @@ Rails.application.configure do
   #     :domain  => 'herokuapp.com'
   # }
 
-  config.assets.compile = true
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => "herokuapp.com" }
-  config.action_mailer.smtp_settings = {
-      :address => "smtp.gmail.com",
-      :port => 587,
-      :domain => 'herokuapp.com',
-      :user_name => "dinammorad1@gmail.com",
-      :password => "123456dodo",
-      :authentication => :plain,
-      :enable_starttls_auto => true
-  }
+  config.assets.compile = false
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.default_url_options = { :host => "herokuapp.com" }
+  # config.action_mailer.smtp_settings = {
+  #     :address => "smtp.gmail.com",
+  #     :port => 587,
+  #     :domain => 'herokuapp.com',
+  #     :user_name => "dinammorad1@gmail.com",
+  #     :password => "123456dodo",
+  #     :authentication => :plain,
+  #     :enable_starttls_auto => true
+  # }
 
   # config.action_mailer.default_url_options = { :host => 'https://mallonline.herokuapp.com' }
   # config.action_mailer.delivery_method = :smtp
