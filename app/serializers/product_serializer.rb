@@ -4,6 +4,8 @@ class ProductSerializer < ActiveModel::Serializer
   def picture
     if object.picture
       object.picture.url
+    else
+      ''
     end
   end
 end
