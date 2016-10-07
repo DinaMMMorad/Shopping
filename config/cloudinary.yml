@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dege1inxk
+  api_key: '342962488689312'
+  api_secret: v3hH_P0jmn1Qy1GZtRw_3SXmfCg
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dege1inxk
+  api_key: '342962488689312'
+  api_secret: v3hH_P0jmn1Qy1GZtRw_3SXmfCg
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dege1inxk
+  api_key: '342962488689312'
+  api_secret: v3hH_P0jmn1Qy1GZtRw_3SXmfCg
+  enhance_image_tag: true
+  static_image_support: false

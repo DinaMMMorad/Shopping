@@ -23,10 +23,10 @@ module Shopping
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.paperclip_defaults = {:storage => :fog,
-                                 :fog_credentials => {:provider => "Local",
-                                                      :local_root => "#{Rails.root}/public"},
-                                 :fog_directory => "",
-                                 :fog_host => "http://293858c0.ngrok.io"}#"https://mallonline.herokuapp.com"}
+    # config.paperclip_defaults = {:storage => :fog,
+    #                              :fog_credentials => {:provider => "Local",
+    #                                                   :local_root => "#{Rails.root}/public"},
+    #                              :fog_directory => "",
+    #                              :fog_host => "http://17e0657a.ngrok.io"}#"https://mallonline.herokuapp.com"}
   end
 end

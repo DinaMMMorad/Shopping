@@ -16,8 +16,8 @@ class Product < ActiveRecord::Base
     Product.where(:category_id => category_id).all
   end
 
-  def self.search_product(product_category_id, product_title)
-    Product.where('category_id = ? AND title = ?', product_category_id, product_title).all
+  def self.search_product(product_category_id, search_text)
+    Product.where('category_id = ? AND (title LIKE ? OR description LIKE ?)', product_category_id, "%#{search_text}%", "%#{search_text}%").all
   end
 
   def self.search_new_arrivals(product_title)
