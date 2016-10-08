@@ -19,10 +19,10 @@ class Product < ActiveRecord::Base
   end
 
   def self.search_product(product_category_id, search_text)
-    Product.where('category_id = ? AND (title LIKE ? OR description LIKE ?)', product_category_id, "%#{search_text}%", "%#{search_text}%").all
+    Product.where('category_id = ? AND (lower(title) LIKE ? OR lower(description) LIKE ?)', product_category_id, "%#{search_text.downcase}%", "%#{search_text.downcase}%").all
   end
 
   def self.search_new_arrivals(search_text)
-    Product.where('is_new = ? AND (title LIKE ? OR description LIKE ?)', true, "%#{search_text}%", "%#{search_text}%").all
+    Product.where('is_new = ? AND (lower(title) LIKE ? OR lower(description) LIKE ?)', true, "%#{search_text.downcase}%", "%#{search_text.downcase}%").all
   end
 end
