@@ -18,7 +18,7 @@ ActiveAdmin.register Product do
   filter :price
 
 
-  permit_params :title, :description, :is_new, :picture, :category_id, :price
+  permit_params :title, :description, :is_new, :picture, :category_id, :price, product_images_attributes: [:picture]
 
   form do |f|
     f.inputs 'Product Details' do
@@ -26,10 +26,13 @@ ActiveAdmin.register Product do
       f.input :description
       f.input :price
       f.input :is_new
-      f.inputs 'Upload' do
-        f.input :picture, required: true, as: :file
+      f.inputs 'Product images' do
+        f.has_many :product_images do |p|
+          p.input :picture, required: true, as: :file
+          # p.input :picture, :as => :file, :label => 'Image'
+        end
       end
-      f.input :category_id, :as => :select, :collection => Category.all.map {|u| [u.title, u.id]}, :include_blank => false
+      f.input :category_id, :as => :select, :collection => Category.all.map { |u| [u.title, u.id] }, :include_blank => false
     end
     f.actions
   end
@@ -40,9 +43,14 @@ ActiveAdmin.register Product do
       row :description
       row :price
       row :category_id
-      row :picture do
-        image_tag(product.picture.url) #(:thumb))
+      product.product_images.each do |product_image|
+        row :images do
+          image_tag(product_image.picture.url) #(:thumb))
+        end
       end
+      # row :picture do
+      #   image_tag(product.picture.url) #(:thumb))
+      # end
     end
   end
 

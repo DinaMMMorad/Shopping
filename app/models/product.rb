@@ -3,9 +3,12 @@ class Product < ActiveRecord::Base
   has_many :users
   has_many :orders, :dependent => :destroy
   belongs_to :category
-  has_attached_file :picture, :storage => :cloudinary, :cloudinary_resource_type => :image,
-                    path: "product/:id"
-  validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
+  has_many :product_images, :dependent => :destroy
+  accepts_nested_attributes_for :product_images
+
+  # has_attached_file :picture, :storage => :cloudinary, :cloudinary_resource_type => :image,
+  #                   path: "product/:id"
+  # validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
   validates :title, presence: true
   validates :price, presence: true
   validates :category_id, presence: true
