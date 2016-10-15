@@ -3,12 +3,13 @@ class Product < ActiveRecord::Base
   has_many :users
   has_many :orders, :dependent => :destroy
   belongs_to :category
-  has_many :product_images, :dependent => :destroy
-  accepts_nested_attributes_for :product_images
+  has_many :product_images, :dependent => :destroy , :autosave => true
+  # accepts_nested_attributes_for :product_images, allow_destroy: true
 
-  # has_attached_file :picture, :storage => :cloudinary, :cloudinary_resource_type => :image,
-  #                   path: "product/:id"
-  # validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
+  accepts_nested_attributes_for :product_images,
+                                # :reject_if => lambda { |attributes| attributes[:picture].blank? },
+                                :allow_destroy => true
+
   validates :title, presence: true
   validates :price, presence: true
   validates :category_id, presence: true
